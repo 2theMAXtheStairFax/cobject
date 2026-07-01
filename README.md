@@ -25,7 +25,7 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 - High power VTX. Read your VTXs manual for Band, Channel, Power, and Unlocking procedures.
 - microSD card, for blackbox logging. Maximum 4GB usable, any extra space will not be utilized.
 - 3D printer capable of printing the shell/mount parts above
-- An EdgeTX/OpenTX-compatible transmitter with an ELRS module, for `Sky Cob.yml`. Preferred Module for ground station telemetry tracking: Radiomaster Nomad on a Radiomaster Boxer
+- An EdgeTX compatible transmitter with an ELRS module, for `Sky Cob.yml`. Preferred Module for ground station telemetry tracking: Radiomaster Nomad on a Radiomaster Boxer
 
 ## Setup
 
