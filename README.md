@@ -8,11 +8,11 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 |---|---|
 | `INAV_9.0.1_cli_SKY_COB_20260701_003845.txt` | INAV 9.0.1 CLI dump for the flight controller (target `SPEEDYBEEF405WING`). Paste/load this into the INAV Configurator CLI tab to reproduce the full flight controller setup. |
 | `Sky Cob.yml` | EdgeTX/OpenTX radio model ("Sky Cob") for the transmitter — ELRS module setup plus telemetry screens (RSSI, GPS, altitude, battery, attitude, flight mode). |
-| `cobshell.stl` | Main payload shell / fuselage. |
-| `cobby20x40.stl` | Core airframe piece. |
+| `cobshell.stl` | Main payload shell in upright position. |
+| `cobby20x40.stl` | Reciever Mounting plate |
 | `cobbyspeedy-top.stl` | Top mounting plate sized for the SpeedyBee F405 Wing FC. |
-| `cobby19mm_cam_stand.stl` | 19 mm camera mount/stand. |
-| `fix model.stl` | Structural reinforcement/replacement part. |
+| `cobby19mm_cam_stand.stl` | Main Chassis for components. |
+| `fix model.stl` | Current Shell model in printing orientation for 250x250 bed. |
 
 ## Hardware you'll need
 
@@ -26,12 +26,22 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 
 ## Setup
 
-### 1. Print the payload shell
+### 1. Print the payload shell and assemble
 
 Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_stand.stl`, and `fix model.stl`. Test-fit the FC mount (`cobbyspeedy-top.stl`) against your actual SpeedyBee F405 Wing board before committing to a full print run, since mounting hole tolerances are easy to get slightly wrong between printers/materials.
 
 > [!WARNING]
 > Models and files are still WIP. Please check for any recent updates before starting.
+
+FC in the Bay
+
+GPS on top
+
+RX and VTX on mounting plate through eachother (20x20, VTX out, RX in). Place subassembly on back standoffs (drill holes and use inserts for the 40x40 area.)
+
+Battery and 5G tracker strapped through the 2 large holes towards the bottom
+
+Camera on the very bottom
 
 ### 2. Flash and configure the flight controller (INAV 9.0.1)
 
