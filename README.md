@@ -71,12 +71,17 @@ Other defaults worth knowing about:
 5. if no telemetry is listed, check the telemetry page for sensors. If no sensors are listed, select "discover sensors" and "stop discovery" once all sensors are listed and no more show up after 30 seconds.
 6. Your telemetry pages should now list payload telemetry.
 
+> [!NOTE]
+> Technically a radio is not required for setup, you can use the module plugged into the ground station and a separate battery for power. However, it is recommended to use one as backup and for future implementation (gimbal?)
+
 ### 4. Pre-flight checklist
 
 - [ ] Fully charged 3S/12V battery is inserted and plugged in. 
 - [ ] microSD card inserted and formatted for blackbox logging.
 - [ ] GPS has a lock (multi-constellation: GPS + SBAS/WAAS + Galileo + BeiDou + GLONASS) 5-8 sats minimum before launch. takes 30 seconds to 3 minutes from cold start.
 - [ ] VTX band/channel (R)ace Band, Channel 8, 5917Mhz, full transmit power.
+- [ ] Radio charged, powered on, and bound/connected to the payload.
+- [ ] Laptop/Ground Station charged, setup, and plugged in the USB port on the ELRS Module.
 
 ### 5. Channel Mapping
 > [!NOTE]
