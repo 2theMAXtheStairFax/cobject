@@ -1,0 +1,223 @@
+diff all
+
+# version
+# INAV/SPEEDYBEEF405WING 9.0.1 Feb 13 2026 / 06:49:52 (d44f2cf6) 
+# GCC-13.2.1 20231009
+
+# start the command batch
+batch start
+
+# reset configuration to default settings
+defaults noreboot
+
+# resources
+
+# Timer overrides
+
+# Outputs [servo]
+
+# safehome
+
+# Fixed Wing Approach
+
+# geozone
+
+# geozone vertices
+
+# features
+feature GPS
+
+# beeper
+
+# blackbox
+blackbox -NAV_ACC
+blackbox NAV_POS
+blackbox NAV_PID
+blackbox MAG
+blackbox ACC
+blackbox ATTI
+blackbox RC_DATA
+blackbox RC_COMMAND
+blackbox MOTORS
+blackbox -GYRO_RAW
+blackbox -PEAKS_R
+blackbox -PEAKS_P
+blackbox -PEAKS_Y
+blackbox SERVOS
+
+# Receiver: Channel map
+map TAER
+
+# Ports
+
+# LEDs
+
+# LED color
+
+# LED mode_color
+
+# Modes [aux]
+aux 0 0 0 1300 2100
+aux 1 19 1 1300 2100
+aux 2 42 2 1300 1700
+aux 3 43 3 1700 2100
+aux 4 13 4 1300 2100
+
+# Adjustments [adjrange]
+
+# Receiver rxrange
+
+# temp_sensor
+
+# Mission Control Waypoints [wp]
+#wp 0 invalid
+
+# OSD [osd_layout]
+osd_layout 0 0 23 0 H
+osd_layout 0 1 10 0 V
+osd_layout 0 7 13 12 H
+osd_layout 0 8 1 12 V
+osd_layout 0 9 1 2 H
+osd_layout 0 11 1 10 H
+osd_layout 0 12 1 9 H
+osd_layout 0 14 25 1 V
+osd_layout 0 22 28 2 H
+osd_layout 0 26 2 2 V
+osd_layout 0 28 23 12 V
+osd_layout 0 30 1 11 H
+osd_layout 0 96 1 1 V
+osd_layout 0 97 17 0 V
+osd_layout 1 1 1 0 V
+osd_layout 1 11 2 10 V
+osd_layout 1 12 2 11 V
+osd_layout 1 13 23 5 V
+osd_layout 1 14 17 2 V
+osd_layout 1 20 17 4 V
+osd_layout 1 21 17 3 V
+osd_layout 1 22 26 2 V
+osd_layout 1 23 22 6 V
+osd_layout 1 28 23 11 V
+osd_layout 1 29 20 10 V
+osd_layout 1 30 1 12 H
+osd_layout 1 31 23 8 V
+osd_layout 1 40 22 7 V
+osd_layout 1 97 17 0 V
+osd_layout 1 109 2 2 V
+osd_layout 1 110 2 3 V
+osd_layout 1 112 2 5 V
+osd_layout 1 159 2 4 V
+osd_layout 1 160 2 6 V
+osd_layout 1 161 2 7 V
+osd_layout 1 162 2 8 V
+
+# Programming: logic
+
+# Programming: global variables
+
+# Programming: PID controllers
+
+# OSD: custom elements
+
+# master
+set gyro_zero_y = -11
+set gyro_zero_z = 8
+set ins_gravity_cmss =  982.513
+set acc_hardware = ICM42605
+set acczero_x = -2
+set acczero_y = -11
+set acczero_z = 36
+set accgain_x = 4097
+set accgain_y = 4100
+set accgain_z = 4100
+set align_mag = CW270FLIP
+set mag_hardware = FAKE
+set baro_hardware = SPL06
+set blackbox_rate_denom = 2
+set motor_pwm_protocol = STANDARD
+set failsafe_procedure = NONE
+set failsafe_min_distance_procedure = NONE
+set align_board_pitch = 900
+set small_angle = 180
+set applied_defaults = 1
+set gps_sbas_mode = WAAS
+set gps_ublox_use_galileo = ON
+set gps_ublox_use_beidou = ON
+set gps_ublox_use_glonass = ON
+set inav_w_z_baro_p =  0.350
+set inav_w_z_baro_v =  0.350
+set inav_w_z_gps_p =  0.350
+set inav_w_z_gps_v =  0.350
+set nav_overrides_motor_stop = OFF_ALWAYS
+set nav_rth_climb_first = OFF
+set nav_rth_allow_landing = NEVER
+set safehome_usage_mode = OFF
+set nav_mc_wp_slowdown = OFF
+set osd_video_system = NTSC
+set osd_units = IMPERIAL
+set osd_time_alarm = 600
+set osd_alt_alarm = 10000
+set osd_dist_alarm = 50000
+set osd_rssi_dbm_alarm = -100
+set osd_switch_indicators_align_left = OFF
+set name = SKY COB
+set pilot_name = UWOSLAB
+set tz_offset = -240
+set tz_automatic_dst = USA
+set vtx_band = 5
+set vtx_channel = 8
+
+# control_profile
+control_profile 1
+
+
+# control_profile
+control_profile 2
+
+
+# control_profile
+control_profile 3
+
+
+# mixer_profile
+mixer_profile 1
+
+
+# Mixer: motor mixer
+
+# Mixer: servo mixer
+
+# mixer_profile
+mixer_profile 2
+
+
+# Mixer: motor mixer
+
+# Mixer: servo mixer
+
+# battery_profile
+battery_profile 1
+
+
+# battery_profile
+battery_profile 2
+
+set bat_cells = 3
+
+# battery_profile
+battery_profile 3
+
+
+# restore original profile selection
+control_profile 2
+mixer_profile 1
+battery_profile 2
+
+# save configuration
+save
+
+# get nav_extra_arming_safety 
+nav_extra_arming_safety = ALLOW_BYPASS
+Allowed values: ON, ALLOW_BYPASS
+
+
+# 
