@@ -20,15 +20,18 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 - GPS module (uBlox; config uses SBAS/WAAS + Galileo + BeiDou + GLONASS) Preferred: HGLRC M100 Pro or Foxeer M10
 - ExpressLRS receiver, Radiomaster DBR4 preferred.
 - High power VTX. Read your VTXs manual for Band, Channel, Power, and Unlocking procedures.
-- microSD card, for blackbox logging
+- microSD card, for blackbox logging. Maximum 4GB usable, any extra space will not be utilized.
 - 3D printer capable of printing the shell/mount parts above
-- An EdgeTX/OpenTX-compatible transmitter with an ELRS module, for `Sky Cob.yml`. Preferred Module for ground station telemetry tracking: Radiomaster Nomad
+- An EdgeTX/OpenTX-compatible transmitter with an ELRS module, for `Sky Cob.yml`. Preferred Module for ground station telemetry tracking: Radiomaster Nomad on a Radiomaster Boxer
 
 ## Setup
 
 ### 1. Print the payload shell
 
 Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_stand.stl`, and `fix model.stl`. Test-fit the FC mount (`cobbyspeedy-top.stl`) against your actual SpeedyBee F405 Wing board before committing to a full print run, since mounting hole tolerances are easy to get slightly wrong between printers/materials.
+
+> [!WARNING]
+> Models and files are still WIP. Please check for any recent updates before starting.
 
 ### 2. Flash and configure the flight controller (INAV 9.0.1)
 
@@ -63,8 +66,7 @@ Other defaults worth knowing about:
 - [ ] Fully charged 3S/12V battery is inserted and plugged in. 
 - [ ] microSD card inserted and formated for blackbox logging.
 - [ ] GPS has a lock (multi-constellation: GPS + SBAS/WAAS + Galileo + BeiDou + GLONASS) 5-8 sats minimum before launch. takes 30 seconds to 3 minutes from cold start.
-- [ ] VTX band/channel (default band 5 / channel 8) checked against other flyers at the site. (R)ace Band, Channel 8, 5917Mhz, full transmit power.
-- [ ] Recovery/mission plan accounts for there being no automatic failsafe or RTH.
+- [ ] VTX band/channel (R)ace Band, Channel 8, 5917Mhz, full transmit power.
 
 ### 5. Channel Mapping
 > [!NOTE]
@@ -76,6 +78,7 @@ Other defaults worth knowing about:
 | OSD Off | 6 | SC | High
 | OSD 2nd Page| 6 | SC | Mid
 | OSD 1st Page | 6 | SC | Low
+| Beeper | 7 | SB | Mid-High
 
 ## Questions
 
