@@ -2,6 +2,9 @@
 
 Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's built around a SpeedyBee F405 Wing flight controller running INAV, packaged inside a 3D-printed shell, and monitored over an ELRS RC link. This repo holds everything needed to reproduce the payload build: the flight controller configuration, the radio (transmitter) model, and the 3D-printable enclosure.
 
+> [!CAUTION]
+> PLease read this description in full before starting!
+
 ## Repository contents
 
 | File | What it is |
