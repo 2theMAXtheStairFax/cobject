@@ -34,7 +34,7 @@ Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_st
 
 1. Install the [INAV Configurator](https://github.com/iNavFlight/inav-configurator) Git release 9.0.2.
 2. Flash the `SPEEDYBEEF405WING` target to the board. use INAV 9.0.1 when flashing.
-> [!TIP]
+> [!IMPORTANT]
 > install ImpulseRC Driver Fixer if you have not already, this will let you install the DFU BOOTLOADER Drivers.
 
 > if target is not found automatically, check if a new COM port has been listed in the top right dropdown and select it before switching to the Firmware Flasher tab.
