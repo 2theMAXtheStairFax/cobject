@@ -39,9 +39,8 @@ Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_st
 1. Place the flight controller in its bay. Make sure the orientation is correct when inserting. Place the FC cover on top and screw down with M2.5 bolts. Self tapping and machine screws will both work, as long as the FC is firmly mounted without wiggling.
 2. Mount the GPS on the top platform with double sided VHB tape or glue, direction does not matter as we will not be using its built in compass (if your GPS unit has one).
 3. Place the RX and VTX on the 20x20mm holes in the X shaped mounting plate. Bolt through the receiver and into the VTX using M2 bolts. Place the subassembly on the rear 40x40mm standoffs and bolt it down with the RX facing inwards and the VTX outwards.
-4. Use double sided VHB tape, glue, or battery straps to mount your 5G GPS tracker to the rear side of the chassis, between the 2 large holes towards the bottom. Do the same with your 12V/3S battery.
-
-Camera on the very bottom
+4. Use double sided VHB tape, glue, or battery straps to mount your 5G GPS tracker to the rear side of the chassis, between the 2 large holes towards the bottom. Do the same with your 12V/3S battery on the other side.
+5. Mount your analog camera to the 19mm wide bracket at the bottom. It should be pointing staight down.
 
 ### 2. Flash and configure the flight controller (INAV 9.0.1)
 
