@@ -91,7 +91,7 @@ Other defaults worth knowing about:
 | Beeper | 7 | SB | Mid-High |
 
 > [!WARNING]
-> Position refers to microsecond range (1000us - 2000us), NOT physical switch position. You can double check in the outputs tab and reversing the channel. If you do reverse a channel, check the model settings failsafe menu for default switch positions or else your radio will yap at you about switch postitions when switching models or powering on.
+> Position refers to microsecond range (1000us - 2000us), NOT physical switch position. You can double check in the outputs tab and reverse the channel for desired behavior. If you do reverse a channel, check the model settings failsafe menu for default switch positions or else your radio will yap at you about switch postitions when switching models or powering on.
 
 ## Questions
 
