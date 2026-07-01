@@ -55,6 +55,7 @@ Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_st
 5. Let the batch run to completion — it ends with `save`, which reboots the FC with the new configuration.
 6. Recalibrate the accelerometer (Calibration tab) — the dump includes calibration offsets (`acczero_*`, `accgain_*`, `gyro_zero_*`) taken from the original unit, and these won't be accurate for a different board. Recalibrate using standard board orientation, not the orientation it will be in once mounted.
 7. In the **Modes** tab, review the `Arm` switch assignment. it should be set to Aux 5 with mid to high sections being enabled. OSD controls are on AUX6, 7, and 8.
+8. Insert your microSD card into the slot on the FC, you will have to remove the top WIFI board of the FC to reach it. In the blackbox logging tab, check to see if the SD Card is detected and format it. (remember, max 4GB usable. Any extra space will not be used.)
 
 Other defaults worth knowing about:
 - `osd_units = IMPERIAL`, `tz_offset = -240` (EDT/Ohio Time)
