@@ -36,9 +36,7 @@ Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_st
 2. Flash the `SPEEDYBEEF405WING` target to the board. use INAV 9.0.1 when flashing.
 > [!IMPORTANT]
 > install ImpulseRC Driver Fixer if you have not already, this will let you install the DFU BOOTLOADER Drivers.
-
 > if target is not found automatically, check if a new COM port has been listed in the top right dropdown and select it before switching to the Firmware Flasher tab.
-
 > if flashing 9.0.1 from default configurator settings is unsuccessful, unplug the FC and hold down the boot button on the USB board while plugging it in. Select the new COM port and enable "No reboot sequence" in the flasher.
 3. Connect to the board and open the **CLI** tab.
 4. Load `INAV_9.0.1_cli_SKY_COB_20260701_003845.txt` (drag-and-drop or the "Load" button), or paste its contents directly into the CLI.
