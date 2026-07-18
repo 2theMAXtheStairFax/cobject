@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "sky-cob-configurator",
+			"path": "../sky-cob-configurator"
+		}
+	]
+}

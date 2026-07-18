@@ -17,6 +17,10 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 | `cobby19mm_cam_stand.stl` | Main Chassis for components. |
 | `fix model.stl` | Current Shell model in printing orientation for 250x250 bed. |
 
+## Related projects
+
+- [sky-cob-configurator](https://github.com/2theMAXtheStairFax/sky-cob-configurator) — a simplified, balloon-only fork of INAV Configurator. Strips out everything irrelevant to a servo-only, non-autonomous balloon payload (motor mixer, RTH, failsafe, etc.) and adds a one-click "Apply Balloon Defaults & Reboot" button to set up a fresh flight controller. Verified against real Sky Cob hardware. See [docs/weather-balloon-configurator.md](docs/weather-balloon-configurator.md) for the design and status.
+
 ## Hardware you'll need
 
 - SpeedyBee F405 Wing flight controller (INAV target `SPEEDYBEEF405WING`)
@@ -31,7 +35,7 @@ Sky Cob is UWOSLAB's recoverable, high-altitude weather balloon payload. It's bu
 
 ### 1. Print the payload shell and assemble
 
-Print `cobshell.stl`, `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_stand.stl`, and `fix model.stl`. Test-fit the FC mount (`cobbyspeedy-top.stl`) against your actual SpeedyBee F405 Wing board before committing to a full print run, since mounting hole tolerances are easy to get slightly wrong between printers/materials.
+Print `cobby20x40.stl`, `cobbyspeedy-top.stl`, `cobby19mm_cam_stand.stl`, and `fix model.stl`. Test-fit the FC mount (`cobbyspeedy-top.stl`) against your actual SpeedyBee F405 Wing board before committing to a full print run, since mounting hole tolerances are easy to get slightly wrong between printers/materials.
 
 > [!WARNING]
 > Models and files are still WIP. Please check for any recent updates before starting.
