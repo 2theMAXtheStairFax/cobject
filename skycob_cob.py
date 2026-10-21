@@ -72,6 +72,7 @@ DOOR_FLANGE = 3.5       # mm, door edge thickness left over the side lips, at th
 
 M2_PILOT = 1.8        # mm, self-tapping M2 into the back pegs
 PEG_HOLE_DEPTH = 12.0   # mm, from the peg tip
+FLAT_SIDES = True       # build the frame's long (+-x) edges out flush with the pegs so it prints on its side
 
 KERNEL_ROWS = 32        # kernel columns around the circumference (also the barrel's facet count)
 KERNEL_PITCH = 10.5     # mm, vertical spacing between kernel rings
@@ -167,6 +168,29 @@ assert len(back_pegs) == 4, f"expected 4 back pegs, found {len(back_pegs)}"
 for bb in back_pegs:
     tip = cq.Vector(bb.center.x, bb.ymax + 1, bb.center.z)
     chassis = chassis.cut(cq.Solid.makeCylinder(M2_PILOT / 2, PEG_HOLE_DEPTH + 1, tip, cq.Vector(0, -1, 0)))
+
+# The pegs and FC-cover posts sit on the frame plate's edges and bulge ~2 mm past them, so on its side
+# the chassis rests on those bumps. Trimming them would leave <1 mm around the M2 pilots, so instead
+# add a rail along each plate edge (the largest +-x face) out to the outermost bulge. That stays inside
+# the stack envelope the cavity is sized from.
+side_rails = []
+if FLAT_SIDES:
+    tri_area = np.linalg.norm(np.cross(chassis_tris[:, 1] - chassis_tris[:, 0],
+                                       chassis_tris[:, 2] - chassis_tris[:, 0]), axis=1) / 2
+    for s in (-1, 1):
+        m = normals[:, 0] * s > 0.99
+        planes = np.round(chassis_tris[m][:, :, 0].mean(1), 2)
+        xs, inv = np.unique(planes, return_inverse=True)
+        edge = chassis_tris[m][inv == np.argmax(np.bincount(inv, tri_area[m]))].reshape(-1, 3)
+        x_edge = edge[:, 0].mean()
+        x_out = chassis_tris[:, :, 0].max() if s > 0 else chassis_tris[:, :, 0].min()
+        (y0, z0), (y1, z1) = edge[:, 1:].min(0), edge[:, 1:].max(0)
+        # No rail face may coincide with the faceted mesh (it leaves sliver holes when tessellated):
+        # 0.5 mm into the plate, 0.05 mm proud of the outermost peg, 0.05 mm in from the plate faces.
+        x0, x1 = sorted((x_edge - s * 0.5, x_out + s * 0.05))
+        y0, y1, z0, z1 = y0 + 0.05, y1 - 0.05, z0 + 0.05, z1 - 0.05
+        chassis = chassis.fuse(cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, cq.Vector(x0, y0, z0)))
+        side_rails.append((x_edge, x_out + s * 0.05, z0, z1))
 
 # --- cob ---------------------------------------------------------------------------------------
 core_r = math.hypot(cav_x / 2 - corner_r, cav_y / 2 - corner_r) + corner_r + MIN_WALL
@@ -342,6 +366,14 @@ print(f"cob              {bb.xlen:.1f} x {bb.ylen:.1f} x {bb.zlen:.1f} mm, core 
       f"{len(kernels)} kernels, valid {cob.isValid()}, {cob.Volume() / 1000:.0f} cm^3")
 print(f"chassis          valid {chassis.isValid()}, {chassis.Volume() / 1000:.1f} cm^3, "
       f"{len(chassis.Faces())} faces")
+_v, _f = chassis.tessellate(0.08, 0.15)
+_inv = np.unique(np.round([(p.x, p.y, p.z) for p in _v], 5), axis=0, return_inverse=True)[1].reshape(-1)
+_f = _inv[np.array(_f)]
+_e = np.sort(np.concatenate([_f[:, [0, 1]], _f[:, [1, 2]], _f[:, [2, 0]]]), axis=1)
+_open = int((np.unique(_e, axis=0, return_counts=True)[1] != 2).sum())
+print(f"chassis mesh     {_open} open/non-manifold edges when tessellated (slicers want 0)")
+for x_edge, x_out, z0, z1 in side_rails:
+    print(f"side rail        plate edge x={x_edge:.2f} built out to {x_out:.2f} mm, z {z0:.1f}..{z1:.1f}")
 print("standoffs (chassis frame) " + ", ".join(f"({x:.2f}, {y:.2f})" for x, y in standoff_xy))
 print(f"standoff span    {tx1 - tx0:.2f} x {ty1 - ty0:.2f} mm")
 print("back peg holes (x, z) " + ", ".join(f"({b.center.x:.2f}, {b.center.z:.2f})" for b in back_pegs))
